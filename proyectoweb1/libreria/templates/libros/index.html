@@ -34,11 +34,15 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {% for libro in libros %}
                     <tr class="">
-                        <td>1</td>
-                        <td>Django con Python</td>
-                        <td>Imagne.jpg</td>
-                        <td>Libro sobre el framework de django</td>
+                        <td>{{ libro.id }}</td>
+                        <td>{{ libro.titulo }}</td>
+                        <td>
+                            <img src="{{ libro.imagen.url }}" height="100">
+                        
+                        </td>
+                        <td>{{ libro.descripcion }}</td>
                         <td> <a
                             name=""
                             id=""
@@ -56,6 +60,7 @@
                             >Borrar</a>
                         </td>
                     </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>
