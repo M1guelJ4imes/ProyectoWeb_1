@@ -4,6 +4,10 @@
     <div class="mb-3">
         <label for="" class="form-label">{{ campo.label }}</label>
 
+        {% if campo.field.widget.input_type == 'file' and campo.value %}
+        <br>
+        <img src="{{MEDIA_URL}}/imagenes/{{campo.value}}" width="100">
+        {% endif %}
         <input
             type="{{ campo.field.widget.input_type }}"
             class="form-control"
@@ -11,6 +15,7 @@
             id=""
             aria-describedby="helpId"
             placeholder="{{ campo.label }}"
+            value="{{ campo.value | default:''}}"
         />
 
     </div>
@@ -24,5 +29,13 @@
         type="submit"
         value="Enviar Informacion"
     />
+    <a
+        name=""
+        id=""
+        class="btn btn-primary"
+        href="{% url 'libros' %}"
+        role="button"
+        >Cancelar</a
+    >
     
 </form>

@@ -15,8 +15,13 @@ def libros(request):
     libros = Libro.objects.all()
     return render(request, 'libros/index.html',{'libros':libros})
 
-def editar(request):
-    return render(request, 'libros/editar.html')
+def editar(request, id):
+    libro =Libro.objects.get(id=id)
+    formulario= LibroForm(request.POST or None, request.FILES or None, instance=libro)
+    if formulario.is_valid() and request.POST:
+        formulario.save()
+        return redirect('libros')
+    return render(request, 'libros/editar.html', {'formulario': formulario})
 
 def crear(request):
     formulario= LibroForm(request.POST or None, request.FILES or None)
