@@ -39,7 +39,22 @@
                         <td>Django con Python</td>
                         <td>Imagne.jpg</td>
                         <td>Libro sobre el framework de django</td>
-                        <td>Editar | Borrar</td>
+                        <td> <a
+                            name=""
+                            id=""
+                            class="btn btn-primary"
+                            href="{% url 'editar' %}"
+                            role="button"
+                            >Editar</a>
+                          | 
+                          <a
+                            name=""
+                            id=""
+                            class="btn btn-danger"
+                            href="#"
+                            role="button"
+                            >Borrar</a>
+                        </td>
                     </tr>
                 </tbody>
             </table>
